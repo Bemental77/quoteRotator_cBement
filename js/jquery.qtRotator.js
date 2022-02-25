@@ -21,7 +21,8 @@
             // here, this refers the jQuery object that was used
             // to call this plugin method ($('#quoteRotator'))
             this.each(function() {
-                
+
+                //here, inside of each() function, this refers to div#quoteRotator
                 var instance = $.data(this, 'qtRotator');
                 
                 if (instance) {
@@ -29,13 +30,16 @@
                 }
                 else {
                     
-                    
+                    instance = $.data(this, 'qtRotator', new
+                    $.QTRotator(options, this));
                     
                 }
                 
             });
             
         }
+
+        return this; // make our plugin method chainable
 
     };
 
